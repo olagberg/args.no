@@ -7,6 +7,11 @@
     }
 }
 
+body {
+    background-color: #181a1b;
+    color: #e8e6e3;
+}
+
 .center {
     text-align: center;
 }
@@ -16,14 +21,28 @@
 }
 
 .github {
-    margin: 2em;
+    margin: 2em 0 1em 0;
+    font-size: 2rem;
+    color: #3391FF;
 }
+
+.github>a:visited {
+    color: #3391FF;
+}
+
 .logo {
     white-space: pre;
+    font-size: 3rem;
+}
+
+.clock {
+    font-family: monospace;
+    color: #16C60C;
+    font-size: 2rem;
 }
 
 .logo:hover {
     animation: color-rotate 4s;
-    animation-iteration-count: infinite; 
+    animation-iteration-count: infinite;
     animation-direction: alternate;
 }
