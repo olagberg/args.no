@@ -1,3 +1,4 @@
+// Get [hours, minutes, seconds] from Date().
 function getTime() {
     let date = new Date();
     let hours = date.getHours();
@@ -6,7 +7,7 @@ function getTime() {
     return [hours, minutes, seconds];
 }
 
-// appends a zero in the
+// Appends a zero before a number if number < 10, e.g 2 => 02. Else it returns the original number
 function addZero(time) {
     if (time < 10) {
         time = "0" + time;
@@ -14,14 +15,16 @@ function addZero(time) {
     return time;
 }
 
-function printTime() {
-    let arr = getTime();
-    arr.forEach((num, index) => {
-        return arr[index] = addZero(num); // If time is below 9, add a zero e.g. 09
+// Sets content of an element to hours:minutes:seconds
+function printTime(elementId) {
+    let times = getTime();
+    // Update the contents in times array with the addZero method
+    times.forEach((time, index) => {
+        times[index] = addZero(time); // If time is below 10, add a zero e.g. 09
     });
-    setInterval(printTime, 1000)
-    document.getElementById('clockID').innerHTML = arr.join(':');
-
+    // Set element to current time joined with :, e.g. 08:59:01
+    document.getElementById(elementId).innerHTML = times.join(':');
 }
 
-printTime();
+// Run script with interval of 1 second
+setInterval(printTime, 1000, 'clockID');
