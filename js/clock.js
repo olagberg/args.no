@@ -15,7 +15,7 @@ function addZero(time) {
     return time;
 }
 
-// Sets content of an element to hours:minutes:seconds
+// Sets content of an element to hours:minutes:seconds with interval of 1 second
 function printTime(elementId) {
     let times = getTime();
     // Update the contents in times array with the addZero method
@@ -24,7 +24,9 @@ function printTime(elementId) {
     });
     // Set element to current time joined with :, e.g. 08:59:01
     document.getElementById(elementId).innerHTML = times.join(':');
+    // Run again after 1 second
+    setTimeout(printTime, 1000, elementId);
 }
 
-// Run script with interval of 1 second
-setInterval(printTime, 1000, 'clockID');
+// Run script
+printTime('clockID')
